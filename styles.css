@@ -121,6 +121,34 @@ main { width: min(100% - 48px, 920px); margin: 0 auto; }
   color: var(--muted);
 }
 .placeholder { margin-top: 20px; color: var(--muted); font-size: 14px; }
+.lunar-simulation { margin-top: 22px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(270px, .9fr); border: 1px solid var(--line); background: var(--surface); }
+.simulation-scene { min-height: 330px; padding: 24px; display: grid; align-content: center; justify-items: center; background: radial-gradient(ellipse at center, var(--accent-light), transparent 68%); }
+.simulation-scene canvas { width: min(100%, 300px); height: auto; aspect-ratio: 1; }
+.simulation-phase { margin: 0; color: var(--text); font-family: Georgia, "Times New Roman", serif; font-size: 23px; }
+.simulation-illumination { margin: 2px 0 0; color: var(--muted); font-size: 13px; }
+.simulation-panel { padding: 32px; display: flex; flex-direction: column; justify-content: center; border-left: 1px solid var(--line); }
+.simulation-label { color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .1em; }
+.simulation-readout p { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
+.simulation-readout strong { color: var(--text); font-family: Georgia, "Times New Roman", serif; font-size: 42px; font-weight: 400; font-variant-numeric: tabular-nums; }
+.simulation-progress { height: 5px; margin: 14px 0 24px; overflow: hidden; background: var(--line); }
+.simulation-progress span { width: 0; height: 100%; display: block; background: var(--accent); transition: width 80ms linear; }
+.simulation-controls { display: flex; flex-wrap: wrap; gap: 8px; }
+.simulation-button { min-height: 40px; padding: 0 14px; border: 1px solid var(--line); background: var(--surface); color: var(--text); cursor: pointer; }
+.simulation-button:hover:not(:disabled) { border-color: var(--accent); }
+.simulation-button:disabled { opacity: .48; cursor: not-allowed; }
+.simulation-button-primary { border-color: var(--accent); background: var(--accent); color: #fff; }
+.simulation-button-primary:hover:not(:disabled) { background: #25493e; }
+.simulation-speed { margin-top: 24px; display: grid; grid-template-columns: 1fr auto; gap: 10px; color: var(--text); font-size: 13px; }
+.simulation-speed output { color: var(--accent); font-variant-numeric: tabular-nums; }
+.simulation-speed input { grid-column: 1 / -1; width: 100%; margin: 2px 0; accent-color: var(--accent); cursor: pointer; }
+.simulation-speed input:focus-visible, .simulation-button:focus-visible { outline: 3px solid #a34f36; outline-offset: 3px; }
+.simulation-speed-endpoints { grid-column: 1 / -1; display: flex; justify-content: space-between; color: var(--muted); font-size: 11px; }
+.simulation-status { min-height: 22px; margin: 16px 0 0; color: var(--muted); font-size: 12px; }
+.simulation-phase-track { margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); list-style: none; }
+.simulation-phase-track li { position: relative; min-height: 42px; padding: 14px 8px 0 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; line-height: 1.35; }
+.simulation-phase-track li::before { position: absolute; top: -4px; left: 0; width: 7px; height: 7px; border: 1px solid var(--muted); border-radius: 50%; background: var(--background); content: ""; }
+.simulation-phase-track li.is-current { color: var(--accent); font-weight: 700; }
+.simulation-phase-track li.is-current::before { border-color: var(--accent); background: var(--accent); }
 .site-footer {
   min-height: 68px;
   padding: 16px max(24px, calc((100% - 1040px) / 2));
@@ -141,6 +169,10 @@ main { width: min(100% - 48px, 920px); margin: 0 auto; }
   #visualizacao-fases .phase-card { min-height: 112px; }
   #visualizacao-fases .phase-detail { padding: 22px; grid-template-columns: 100px minmax(0, 1fr); gap: 20px; }
   #visualizacao-fases .phase-detail__moon { width: 100px; height: 100px; }
+  .lunar-simulation { grid-template-columns: 1fr; }
+  .simulation-scene { min-height: 280px; }
+  .simulation-panel { padding: 24px 20px; border-top: 1px solid var(--line); border-left: 0; }
+  .simulation-phase-track { grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 12px; }
   .site-footer { padding-right: 20px; padding-left: 20px; }
 }
 @media (max-width: 420px) {

@@ -45,8 +45,51 @@
       <section id="simulacao-lunar" class="content-section" aria-labelledby="titulo-simulacao">
         <p class="section-number">02 / ACOMPANHAR</p>
         <h2 id="titulo-simulacao">Simulação do ciclo lunar</h2>
-        <p>Esta seção será desenvolvida por Ítalo. Aqui ficarão a animação do ciclo de aproximadamente 29,5 dias, o contador e os controles de reprodução.</p>
-        <div class="placeholder" role="note">Área reservada para a simulação lunar</div>
+        <p>Acompanhe a mudança da iluminação lunar ao longo de um ciclo completo.</p>
+        <div class="lunar-simulation">
+          <div class="simulation-scene">
+            <canvas id="simulation-moon" width="480" height="480" role="img" aria-label="Lua na fase Lua Nova"></canvas>
+            <p id="simulation-phase" class="simulation-phase">Lua Nova</p>
+            <p id="simulation-illumination" class="simulation-illumination">Iluminação: 0%</p>
+          </div>
+
+          <div class="simulation-panel">
+            <div class="simulation-readout" aria-live="polite" aria-atomic="true">
+              <span class="simulation-label">DIA DO CICLO</span>
+              <p>Dia <strong id="simulation-day">0.0</strong> <span>/ 29.5</span></p>
+            </div>
+
+            <div class="simulation-progress" role="progressbar" aria-label="Progresso do ciclo lunar" aria-valuemin="0" aria-valuemax="29.5" aria-valuenow="0">
+              <span id="simulation-progress-fill"></span>
+            </div>
+
+            <div class="simulation-controls" role="group" aria-label="Controles da simulação lunar">
+              <button id="simulation-start" class="simulation-button simulation-button-primary" type="button">Iniciar</button>
+              <button id="simulation-pause" class="simulation-button" type="button" disabled>Pausar</button>
+              <button id="simulation-reset" class="simulation-button" type="button">Reiniciar</button>
+            </div>
+
+            <label class="simulation-speed" for="simulation-speed-slider">
+              <span>Velocidade</span>
+              <output id="simulation-speed-value" for="simulation-speed-slider">1×</output>
+              <input id="simulation-speed-slider" type="range" min="0.5" max="3" step="0.5" value="1">
+              <span class="simulation-speed-endpoints"><span>0,5×</span><span>3×</span></span>
+            </label>
+
+            <p id="simulation-status" class="simulation-status" aria-live="polite">Pronto para iniciar o ciclo.</p>
+          </div>
+        </div>
+
+        <ol id="simulation-phase-track" class="simulation-phase-track" aria-label="Fases na ordem do ciclo lunar">
+          <li aria-current="step">Lua Nova</li>
+          <li>Crescente Inicial</li>
+          <li>Quarto Crescente</li>
+          <li>Gibosa Crescente</li>
+          <li>Lua Cheia</li>
+          <li>Gibosa Minguante</li>
+          <li>Quarto Minguante</li>
+          <li>Minguante Final</li>
+        </ol>
       </section>
 
       <section id="quiz-lunar" class="content-section" aria-labelledby="titulo-quiz">
