@@ -47,9 +47,79 @@ main { width: min(100% - 48px, 920px); margin: 0 auto; }
 .section-number { margin: 0 0 8px; }
 .content-section h2 { margin: 0 0 10px; font-family: Georgia, "Times New Roman", serif; font-size: 30px; font-weight: 400; }
 .content-section > p:not(.section-number) { max-width: 690px; color: var(--muted); }
-.phase-list { margin-top: 22px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
-.phase-list span, .placeholder { padding: 12px 14px; border: 1px solid var(--line); background: var(--surface); }
-.phase-list span { color: var(--accent); font-size: 13px; }
+#visualizacao-fases .phase-explorer { margin-top: 24px; }
+#visualizacao-fases .phase-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+#visualizacao-fases .phase-card {
+  min-width: 0;
+  min-height: 124px;
+  padding: 14px 10px 12px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--text);
+  background: var(--surface);
+  font: inherit;
+  font-size: 13px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color .2s ease, background-color .2s ease, transform .2s ease;
+}
+#visualizacao-fases .phase-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+#visualizacao-fases .phase-card[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 700;
+}
+#visualizacao-fases .phase-card:focus-visible {
+  outline: 3px solid #a34f36;
+  outline-offset: 3px;
+}
+#visualizacao-fases .phase-card__moon { width: 42px; height: 42px; }
+#visualizacao-fases .phase-card__moon svg,
+#visualizacao-fases .phase-detail__moon svg { display: block; width: 100%; height: 100%; }
+#visualizacao-fases .phase-detail {
+  margin-top: 18px;
+  padding: 28px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  align-items: center;
+  gap: 28px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+}
+#visualizacao-fases .phase-detail__moon {
+  width: 150px;
+  height: 150px;
+  filter: drop-shadow(0 8px 18px rgb(32 43 42 / 14%));
+}
+#visualizacao-fases .phase-detail__label {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+#visualizacao-fases .phase-detail h3 {
+  margin: 0 0 8px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+#visualizacao-fases .phase-detail__copy [data-phase-description] {
+  margin: 0;
+  color: var(--muted);
+}
 .placeholder { margin-top: 20px; color: var(--muted); font-size: 14px; }
 .site-footer {
   min-height: 68px;
@@ -67,9 +137,16 @@ main { width: min(100% - 48px, 920px); margin: 0 auto; }
   .site-nav { width: 100%; justify-content: space-between; gap: 12px; }
   main { width: min(100% - 40px, 920px); }
   .intro { padding-top: 44px; }
-  .phase-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #visualizacao-fases .phase-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #visualizacao-fases .phase-card { min-height: 112px; }
+  #visualizacao-fases .phase-detail { padding: 22px; grid-template-columns: 100px minmax(0, 1fr); gap: 20px; }
+  #visualizacao-fases .phase-detail__moon { width: 100px; height: 100px; }
   .site-footer { padding-right: 20px; padding-left: 20px; }
+}
+@media (max-width: 420px) {
+  #visualizacao-fases .phase-detail { grid-template-columns: 1fr; justify-items: center; text-align: center; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  #visualizacao-fases .phase-card { transition: none; }
 }

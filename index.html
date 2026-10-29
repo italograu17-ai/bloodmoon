@@ -28,16 +28,17 @@
       <section id="visualizacao-fases" class="content-section" aria-labelledby="titulo-fases">
         <p class="section-number">01 / EXPLORAR</p>
         <h2 id="titulo-fases">Visualização das fases</h2>
-        <p>Esta seção será desenvolvida por João. Aqui ficarão a representação visual, a seleção das oito fases e as descrições correspondentes.</p>
-        <div class="phase-list" aria-label="Oito fases principais da Lua">
-          <span>Lua Nova</span>
-          <span>Crescente Inicial</span>
-          <span>Quarto Crescente</span>
-          <span>Gibosa Crescente</span>
-          <span>Lua Cheia</span>
-          <span>Gibosa Minguante</span>
-          <span>Quarto Minguante</span>
-          <span>Minguante Final</span>
+        <p>Selecione uma fase para observar como a porção iluminada da Lua muda ao longo do ciclo.</p>
+        <div class="phase-explorer">
+          <div class="phase-list" role="group" aria-label="Selecione uma fase da Lua"></div>
+          <article class="phase-detail" aria-live="polite" aria-atomic="true">
+            <div class="phase-detail__moon" data-phase-illustration></div>
+            <div class="phase-detail__copy">
+              <p class="phase-detail__label">FASE SELECIONADA</p>
+              <h3 data-phase-name>Lua Nova</h3>
+              <p data-phase-description>A Lua fica entre a Terra e o Sol. Seu lado iluminado está voltado para o Sol, e o lado escuro fica voltado para a Terra, tornando-a praticamente invisível no céu.</p>
+            </div>
+          </article>
         </div>
       </section>
 
